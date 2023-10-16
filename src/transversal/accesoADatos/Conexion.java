@@ -23,6 +23,7 @@ public class Conexion {
                 
                 connection = DriverManager.getConnection(URL + DB, USER, PASSWORD);
                 
+                
                 JOptionPane.showMessageDialog(null, "Connectado exitosamente");
             }catch(ClassNotFoundException ex){
                 JOptionPane.showMessageDialog(null, "Error al cargar driver " + ex.getMessage());
