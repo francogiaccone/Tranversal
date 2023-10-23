@@ -5,7 +5,8 @@ import java.time.LocalDate;
 public class Alumno {
     
     private int idAlumno, dni;
-    private String apellido, nombre;
+    private String apellido;
+    private String nombre;
     private LocalDate fechaNacimiento;
     private boolean activo;
 
