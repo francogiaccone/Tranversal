@@ -109,11 +109,26 @@ public class MenuView extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu5.setText("Administracion");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
 
         jMenuItem5.setText("Manejo de Inscripciones");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem5);
 
         jMenuItem6.setText("Manipulación de notas");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem6);
 
         jMenuBar1.add(jMenu5);
@@ -121,6 +136,11 @@ public class MenuView extends javax.swing.JFrame {
         jMenu6.setText("Consultas");
 
         jMenuItem11.setText("Alumnos por Materia");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem11);
 
         jMenuBar1.add(jMenu6);
@@ -159,6 +179,37 @@ public class MenuView extends javax.swing.JFrame {
         internalMateria.setVisible(true);
         escritorio.add(internalMateria);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioCargarNotas internalCargarNotas = new FormularioCargarNotas();
+        internalCargarNotas.setVisible(true);
+        escritorio.add(internalCargarNotas);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioListaAlumnoPorMateria internalListaAlumnoPMateria = new FormularioListaAlumnoPorMateria();
+        internalListaAlumnoPMateria.setVisible(true);
+        escritorio.add(internalListaAlumnoPMateria);
+        
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioInscripcion internalInscripcion = new FormularioInscripcion();
+        internalInscripcion.setVisible(true);
+        escritorio.add(internalInscripcion);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
