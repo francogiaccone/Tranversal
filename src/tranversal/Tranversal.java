@@ -3,13 +3,8 @@ package tranversal;
 
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
-import transversal.accesoADatos.AlumnoData;
-import transversal.accesoADatos.Conexion;
-import transversal.accesoADatos.MateriaData;
-import transversal.entidades.Alumno;
-import transversal.entidades.Inscripcion;
-import transversal.accesoADatos.InscripcionData;
-import transversal.entidades.Materia;
+import transversal.accesoADatos.*;
+import transversal.entidades.*;
 
         
 public class Tranversal {
