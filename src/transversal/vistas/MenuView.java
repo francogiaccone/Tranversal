@@ -146,6 +146,11 @@ public class MenuView extends javax.swing.JFrame {
         jMenuBar1.add(jMenu6);
 
         jMenu7.setText("Salir");
+        jMenu7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu7ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
@@ -170,6 +175,7 @@ public class MenuView extends javax.swing.JFrame {
         FormularioAlumno internalAlumno = new FormularioAlumno();
         internalAlumno.setVisible(true);
         escritorio.add(internalAlumno);
+               
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -210,6 +216,10 @@ public class MenuView extends javax.swing.JFrame {
         internalInscripcion.setVisible(true);
         escritorio.add(internalInscripcion);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
+        
+    }//GEN-LAST:event_jMenu7ActionPerformed
 
     /**
      * @param args the command line arguments
