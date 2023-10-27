@@ -7,6 +7,7 @@ package transversal.vistas;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import transversal.accesoADatos.AlumnoData;
 import transversal.entidades.Alumno;
@@ -78,8 +79,18 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jLabel6.setText("Fecha de Nacimiento");
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +100,11 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         });
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,7 +223,34 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbBuscarActionPerformed
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+       dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+       if(alumnoActual!=null){
+           aluData.eliminarAlumno(alumnoActual.getIdAlumno());
+           alumnoActual = null;
+           borrarCampos();
+       }else{
+           JOptionPane.showMessageDialog(this, "No encontro el alumno");
+       }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        borrarCampos();
+        alumnoActual = null;
+        jbBuscar.setEnabled(false);
+        jbEliminar.setEnabled(false);
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+private void  borrarCampos(){
+    jtfDocumento.setText("");
+    jtfApellido.setText("");
+    jtfNombre.setText("");
+    jrEstado.setSelected(true);
+    jDfechaNacimiento.setDate(new Date());
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser jDfechaNacimiento;
     private javax.swing.JLabel jLabel1;
