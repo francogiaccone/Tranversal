@@ -46,7 +46,7 @@
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jcSeleccionAlumno" min="-2" pref="202" max="-2" attributes="0"/>
+              <Component id="jcbAlumno" min="-2" pref="202" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -76,11 +76,11 @@
               <EmptySpace pref="18" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jBincribir" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbInscribir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jBAnularInscripcion" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbAnularInscripcion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                      <Component id="jBSalir" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" min="-2" pref="480" max="-2" attributes="0"/>
               </Group>
@@ -96,7 +96,7 @@
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jcSeleccionAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -111,9 +111,9 @@
               <Component id="jScrollPane2" min="-2" pref="165" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jBSalir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBAnularInscripcion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBincribir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbSalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbAnularInscripcion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbInscribir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
@@ -137,7 +137,7 @@
         <Property name="text" type="java.lang.String" value="Seleccion de Alumno:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jcSeleccionAlumno">
+    <Component class="javax.swing.JComboBox" name="jcbAlumno">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -181,7 +181,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTListadoMaterias">
+        <Component class="javax.swing.JTable" name="jtMaterias">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="4">
@@ -194,22 +194,22 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jBSalir">
+    <Component class="javax.swing.JButton" name="jbSalir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSalirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSalirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jBAnularInscripcion">
+    <Component class="javax.swing.JButton" name="jbAnularInscripcion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Anular Inscripcion"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBincribir">
+    <Component class="javax.swing.JButton" name="jbInscribir">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Incribir"/>
+        <Property name="text" type="java.lang.String" value="Inscribir"/>
       </Properties>
     </Component>
   </SubComponents>
