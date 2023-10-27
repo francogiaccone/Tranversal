@@ -5,6 +5,8 @@
  */
 package transversal.vistas;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import javax.swing.JOptionPane;
 import transversal.accesoADatos.AlumnoData;
 import transversal.entidades.Alumno;
@@ -14,7 +16,8 @@ import transversal.entidades.Alumno;
  * @author franc
  */
 public class FormularioAlumno extends javax.swing.JInternalFrame {
-
+    private AlumnoData aluData = new AlumnoData();
+    private Alumno alumnoActual = null;
     /**
      * Creates new form FormularioAlumno
      */
@@ -31,7 +34,6 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtfDocumento = new javax.swing.JTextField();
@@ -47,7 +49,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jbEliminar = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDfechaNacimiento = new com.toedter.calendar.JDateChooser();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Alumno");
@@ -126,8 +128,8 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
                                             .addComponent(jbSalir)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(jDfechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(228, 228, 228)
                         .addComponent(jLabel1)))
@@ -158,7 +160,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDfechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
@@ -186,8 +188,16 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
       
         try{
             
-            
-            
+            Integer dni = Integer.parseInt(jtfDocumento.getText());
+            alumnoActual=aluData.buscarAlumnoPorDni(dni);
+            if(alumnoActual!=null){
+                jtfApellido.setText(alumnoActual.getApellido());
+                jtfNombre.setText(alumnoActual.getNombre());
+                jrEstado.setSelected(alumnoActual.isActivo());
+                LocalDate lc = alumnoActual.getFechaNacimiento();
+                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                jDfechaNacimiento.setDate(date);
+            }
         }catch(NumberFormatException a){
             
            JOptionPane.showMessageDialog(this, "Ingrese un numero valido");
@@ -199,8 +209,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JCalendar jCalendar1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDfechaNacimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
