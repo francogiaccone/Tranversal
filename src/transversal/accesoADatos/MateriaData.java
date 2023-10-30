@@ -1,24 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package transversal.accesoADatos;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import transversal.entidades.Materia;
 
-/**
- *
- * @author alumno
- */
 public class MateriaData {
     
     private Connection con=null;
@@ -27,7 +14,7 @@ public class MateriaData {
         con=Conexion.getConexion();
     }
     
-    public void guardarMateriaData(Materia materia){
+    public void guardarMateria(Materia materia){
         
         String sql="INSERT INTO materia(nombre, anio, estado)"
             + "VALUES(?, ?, ?)";
@@ -52,7 +39,7 @@ public class MateriaData {
         }
     }
     
-    public void modificarMateriaData(Materia materia){
+    public void modificarMateria(Materia materia){
             
         String sql="UPDATE materia SET nombre = ? , anio = ?" 
                + " WHERE idMateria = ? ";
@@ -116,7 +103,7 @@ public class MateriaData {
      }
     
     
-    public List<Materia> listarMateria(){
+    public List<Materia> listarMaterias(){
          String sql="SELECT idMateria,nombre, anio FROM materia WHERE estado = 1";
          ArrayList<Materia> materias = new ArrayList<>();
         try {

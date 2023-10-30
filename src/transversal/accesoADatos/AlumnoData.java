@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import transversal.entidades.Alumno;
 
@@ -27,10 +25,9 @@ public class AlumnoData {
         
         String sql="INSERT INTO alumno(dni, apellido, nombre, fechaNacimiento, estado)"
             + "VALUES(?, ?, ?, ?, ?)";
-        
        
         try {
-            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, alumno.getDni());
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
@@ -50,7 +47,7 @@ public class AlumnoData {
         }
     }
 
-     public void modificarAlumno(Alumno alumno){
+    public void modificarAlumno(Alumno alumno){
             
         String sql="UPDATE alumno SET dni = ?, apellido = ? , nombre = ?, fechaNacimiento = ?" 
                + "WHERE idAlumno = ? ";
@@ -69,9 +66,9 @@ public class AlumnoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla alumno");
         }
-     }
+    }
      
-     public void eliminarAlumno(int id){
+    public void eliminarAlumno(int id){
          
          String sql="UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
          
@@ -88,9 +85,9 @@ public class AlumnoData {
         } catch (SQLException ex) {
           JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla alumno");
         }
-     }
+    }
     
-     public Alumno buscarAlumno(int id){
+    public Alumno buscarAlumno(int id){
          String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
          Alumno alumno=null;
         try {
@@ -116,11 +113,11 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla alumno");
         }
         return alumno; 
-     }
+    }
      
-     public Alumno buscarAlumnoPorDni(int dni){
-         String sql="SELECT idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni = ? AND estado = 1";
-         Alumno alumno=null;
+    public Alumno buscarAlumnoPorDni(int dni){
+        String sql="SELECT idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni = ? AND estado = 1";
+        Alumno alumno=null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
@@ -129,7 +126,7 @@ public class AlumnoData {
             if(rs.next()){
                
                 alumno=new Alumno();
-                alumno.setDni(rs.getInt("idAlumno"));
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
@@ -144,9 +141,9 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla alumno");
         }
         return alumno; 
-     }
+    }
      
-     public List<Alumno> listarAlumno(){
+    public List<Alumno> listarAlumnos(){
          String sql="SELECT idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno WHERE estado = 1";
          ArrayList<Alumno> alumnos = new ArrayList<>();
         try {
@@ -157,7 +154,7 @@ public class AlumnoData {
             while(rs.next()){
                
                Alumno alumno=new Alumno();
-                alumno.setDni(rs.getInt("idAlumno"));
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
@@ -172,5 +169,5 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla alumno");
         }
         return alumnos; 
-     }
+    }
 }
